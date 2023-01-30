@@ -6,7 +6,7 @@
   angular.module('messages', ['ngMessages']);
 </script>
 
-                <div class="card-body">
+<div class="card-body">
 
                   <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
                     <i class="mdi-content-send right"></i>
@@ -27,18 +27,15 @@
                     <a href="../plan-de-trabajo" class="Plan de Trabajo">Plan de Trabajo</a>
                     <a href="../firmas" class="Firma">Firmas</a>
                     <a href="../bibliografia" class="Bibliografía">Bibliografía</a>
-
                     <a href="../anexos" class="Anexos">Anexos</a>
                     <a href="../observaciones" class="Observaciones">Observaciones</a>
                     <a href="../documentos" class="Adjuntar Documentos">Adjuntar Documentos</a>
                     <a href="../certificados" class="Solicitud de Certificados">Solicitud de Certificados</a>
-                    </div>
+                  </div>
 
 <form name="registro" novalidate>
   <br><h6><b>&nbsp;&nbsp;Solicitudes</b></h6>
-  <button ng-disabled="registro.$invalid"  type="submit"  class="center">Adjuntar
-    <i class="mdi-content-send right"></i>
-  </button>
+  <input ng-disabled="registro.$invalid"  type="file"  class="center">
                   <table class="table row centerp">
 
                     <tbody class="leters">
@@ -357,5 +354,5 @@
                     </li>
                   </ul>
                 </nav>
-              </form>
-            </div>
+</form>
+</div>

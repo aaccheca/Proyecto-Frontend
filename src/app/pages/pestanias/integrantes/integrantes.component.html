@@ -6,7 +6,7 @@
   angular.module('messages', ['ngMessages']);
 </script>
 
-                <div class="card-body">
+<div class="card-body">
 
                   <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
                     <i class="mdi-content-send right"></i>
@@ -27,12 +27,11 @@
                     <a href="../plan-de-trabajo" class="Plan de Trabajo">Plan de Trabajo</a>
                     <a href="../firmas" class="Firma">Firmas</a>
                     <a href="../bibliografia" class="Bibliografía">Bibliografía</a>
-
                     <a href="../anexos" class="Anexos">Anexos</a>
                     <a href="../observaciones" class="Observaciones">Observaciones</a>
                     <a href="../documentos" class="Adjuntar Documentos">Adjuntar Documentos</a>
                     <a href="../certificados" class="Solicitud de Certificados">Solicitud de Certificados</a>
-                    </div>
+                  </div>
 
 <form name="registro" novalidate>
   <br><div><h6><b>&nbsp;&nbsp;Coordinador del Proyecto</b></h6></div>
@@ -40,107 +39,101 @@
       <section class="input-field row s12 m6">
           <label for="nombre" class="border"><b>Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre y Titulo Profesional&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Horario de trabajo para el Proyecto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargo o Función en la Institución Beneficiaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Funciones Asignadas</b>
           </label></section>
-
           <section class="input-field col s12 m2 sizze">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.numProyecto" name="numProyecto" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze2">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.nombreProyecto" name="nombreProyecto" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze3">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.horarioProyecto" name="horarioProyecto" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze4">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.cargoProyecto" name="nombrecargoProyecto" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze5">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text"[(ngModel)]="currentEntity.funcionesProyecto" name="funcionesProyecto" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
-        </div>
-        <!--<div ng-messages="registro.nombre.$error" ng-messages-include="errores.html" ng-hide="registro.nombre.$pristine"></div>-->
-        <!--<div ng-message="email">Debe ingresar un correo válido</div>-->
+  </div>
         <br><div><h6><b>&nbsp;&nbsp;Grupo de Estudiantes</b></h6></div>
         <div class="row">
             <section class="input-field row s12 m6">
-                <label for="nombre" class="border"><b>Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apellidos y Nombres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numero de Cedula&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especialidad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Funciones Asignadas y Horas de Trabajo</b>
+                <label for="nombre" class="border"><b>Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apellidos y Nombres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numero de Cedula&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especialidad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Funciones Asignadas y Horas de Trabajo</b>
                 </label></section>
-
                 <section class="input-field col s12 m2 sizze">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.numEstudiantes" name="numEstudiantes" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
                 <section class="input-field col s12 m2 sizze5">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.nombreEstudiantes" name="nombreEstudiantes" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
                 <section class="input-field col s12 m2 sizze2">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.cedulaEstudiantes" name="cedulaEstudiantes" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
                 <section class="input-field col s12 m2 sizze4">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.especialidadEstudiantes" name="especialidadEstudiantes" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
                 <section class="input-field col s12 m2 sizze3">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.funcionesEstudiantes" name="funcionesEstudiantes" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
-              </div>
+        </div>
               <br><div><h6><b>&nbsp;&nbsp;Grupo de Docente Academico</b></h6></div>
   <div class="row">
       <section class="input-field row s12 m6">
           <label for="nombre" class="border"><b>Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre y Titulo Profesional&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Horario de trabajo para el Proyecto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Funciones Asignadas y Horas de Trabajo</b>
           </label></section>
-
           <section class="input-field col s12 m2 sizze">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.numDocente" name="numDocente" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze2">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.nombreDocente" name="nombreDocente" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze5">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.horarioDocente" name="horarioDocente" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze5">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.funcionesDocente" name="funcionesDocente" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
-        </div>
+  </div>
         <br><div><h6><b>&nbsp;&nbsp;Coordinador(es) de Institución Beneficiaria</b></h6></div>
         <div class="row">
           <section class="input-field row s12 m6">
               <label for="nombre" class="border"><b>Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apellidos y Nombres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargo o Función de la institución Beneficiaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Funciones Asignadas</b>
               </label></section>
-
               <section class="input-field col s12 m2 sizze">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.numInstitucion" name="numInstitucion" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze5">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.nombreInstitucion" name="nombreInstitucion" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze5">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.cargoInstitucion" name="cargoInstitucion" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze5">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.funcionesInstitucion" name="funcionesInstitucion" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
-            </div>
+        </div>
         <br><div><h6><b>&nbsp;&nbsp;Grupo de Docente Empresarial</b></h6></div>
         <div class="row">
           <section class="input-field row s12 m6">
               <label for="nombre" class="border"><b>Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre y Titulo Profesional&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Télefono&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cargo</b>
               </label></section>
-
               <section class="input-field col s12 m2 sizze">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.numEmpresarial" name="numEmpresarial" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze5">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.nombreEmpresarial" name="nombreEmpresarial" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze2">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.telfEmpresarial" name="telfEmpresarial" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze2">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.cargoEmpresarial" name="cargoEmpresarial" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
-            </div>
+        </div>
 
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit">Confirmar
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit" (click)="save()">Confirmar
       <i class="mdi-content-send right"></i>
   </button>
+
 </form>
 </div>

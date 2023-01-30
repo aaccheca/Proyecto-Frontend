@@ -6,7 +6,7 @@
   angular.module('messages', ['ngMessages']);
 </script>
 
-                <div class="card-body">
+<div class="card-body">
 
                   <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
                     <i class="mdi-content-send right"></i>
@@ -27,82 +27,82 @@
                     <a href="../plan-de-trabajo" class="Plan de Trabajo">Plan de Trabajo</a>
                     <a href="../firmas" class="Firma">Firmas</a>
                     <a href="../bibliografia" class="Bibliografía">Bibliografía</a>
-
                     <a href="../anexos" class="Anexos">Anexos</a>
                     <a href="../observaciones" class="Observaciones">Observaciones</a>
                     <a href="../documentos" class="Adjuntar Documentos">Adjuntar Documentos</a>
                     <a href="../certificados" class="Solicitud de Certificados">Solicitud de Certificados</a>
-                    </div>
+
+                </div>
 
 <form name="registro" novalidate>
   <div class="row">
       <section class="input-field row s12 m6">
-          <label for="nombre" class="orange fblack">Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Cargo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Nombre y Titulo Profesional&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="nombre" class="orange fblack">Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Cargo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Nombre y Titulo Profesional&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Cedula
           </label></section>
           <section class="input-field col s12 m2 sizze">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.numero" name="numero" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze3">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.cargo" name="cargo" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze6">
-          <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+          <input type="text" [(ngModel)]="currentEntity.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
           </section>
           <section class="input-field col s12 m2 sizze6">
-            <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+            <input type="text" [(ngModel)]="currentEntity.cedula" name="cedula" required pattern="[ñáéíóúA-Za-z ]+">
             </section>
-        </div>
+  </div>
 
         <div class="row">
               <section class="input-field col s12 m2 sizze">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.numero" name="numero" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze3">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.cargo" name="cargo" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze6">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze6">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.cedula" name="cedula" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
-            </div>
+        </div>
 
 
             <div class="row">
               <section class="input-field col s12 m2 sizze">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.numero" name="numero" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze3">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.cargo" name="cargo" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze6">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze6">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.cedula" name="cedula" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
             </div>
 
             <div class="row">
               <section class="input-field col s12 m2 sizze">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.numero" name="numero" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze3">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.cargo" name="cargo" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze6">
-              <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+              <input type="text" [(ngModel)]="currentEntity.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
               </section>
               <section class="input-field col s12 m2 sizze6">
-                <input type="text" ng-model="data.nombre" name="nombre" required pattern="[ñáéíóúA-Za-z ]+">
+                <input type="text" [(ngModel)]="currentEntity.cedula" name="cedula" required pattern="[ñáéíóúA-Za-z ]+">
                 </section>
             </div>
 
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit">Confirmar
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit"  (click)="save()">Confirmar
       <i class="mdi-content-send right"></i>
   </button>
 </form>
