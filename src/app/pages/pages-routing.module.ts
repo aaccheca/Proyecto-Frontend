@@ -40,6 +40,7 @@ import { FirmasComponent } from './pestanias/firmas/firmas.component';
 import { IntegrantesComponent } from './pestanias/integrantes/integrantes.component';
 import { ObservacionesComponent } from './pestanias/observaciones/observaciones.component';
 import { PlanDeTrabajoComponent } from './pestanias/plan-de-trabajo/plan-de-trabajo.component';
+import { MenuComponent } from './pestanias/menu/menu.component';
 
 
 const routes: Routes = [
@@ -94,6 +95,7 @@ const routes: Routes = [
       { path: 'integrantes', component: IntegrantesComponent},
       { path: 'observaciones', component: ObservacionesComponent},
       { path: 'plan-de-trabajo', component: PlanDeTrabajoComponent},
+      { path: 'menu-proyecto', component: MenuComponent},
 
       { path: 'encuesta', component: EncuestaComponent },
     ]
