@@ -3,119 +3,193 @@
 <script src="materialize/js/jquery-latest.js"></script>
 <script src="materialize/js/materialize.min.js"></script>
 <script>
-    angular.module('messages', ['ngMessages']);
+  angular.module('messages', ['ngMessages']);
 </script>
 
 <div class="card-body">
 
-                    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
-                      <i class="mdi-content-send right"></i>
-                    </button>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
+    <i class="mdi-content-send right"></i>
+  </button>
 
-                    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
-                      <i class="mdi-content-send right"></i>
-                    </button>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
+    <i class="mdi-content-send right"></i>
+  </button>
 
-                    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
-                      <i class="mdi-content-send right"></i>
-                    </button><br><br>
-                    <div class="pestanas">
-                      <a href="../datos-generales" class="Datos Generales">Datos Generales</a>
-                      <a href="../empresa" class="Empresa">Empresa</a>
-                      <a href="../integrantes" class="Integrantes">Integrantes</a>
-                      <a href="../actividades" class="Actividades">Actividades</a>
-                      <a href="../plan-de-trabajo" class="Plan de Trabajo">Plan de Trabajo</a>
-                      <a href="../firmas" class="Firma">Firmas</a>
-                      <a href="../bibliografia" class="Bibliografía">Bibliografía</a>
-                      <a href="../anexos" class="Anexos">Anexos</a>
-                      <a href="../observaciones" class="Observaciones">Observaciones</a>
-                      <a href="../documentos" class="Adjuntar Documentos">Adjuntar Documentos</a>
-                      <a href="../certificados" class="Solicitud de Certificados">Solicitud de Certificados</a>
-                    </div>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
+    <i class="mdi-content-send right"></i>
+  </button><br><br>
+  <div class="pestanas">
+    <a [routerLink]="['/pages/datos-generales']" class="Datos Generales">Datos Generales</a>
+    <a [routerLink]="['/pages/empresa']" class="Empresa">Empresa</a>
+    <a [routerLink]="['/pages/integrantes']" class="Integrantes">Integrantes</a>
+    <a [routerLink]="['/pages/actividades']" class="Actividades">Actividades</a>
+    <a [routerLink]="['/pages/plan-de-trabajo']" class="Plan de Trabajo">Plan de Trabajo</a>
+    <a [routerLink]="['/pages/firmas']" class="Firma">Firmas</a>
+    <a [routerLink]="['/pages/bibliografia']" class="Bibliografía">Bibliografía</a>
+    <a [routerLink]="['/pages/anexos']" class="Anexos">Anexos</a>
+    <a [routerLink]="['/pages/observaciones']" class="Observaciones">Observaciones</a>
+    <a [routerLink]="['/pages/documentos']" class="Adjuntar Documentos">Adjuntar Documentos</a>
+    <a [routerLink]="['/pages/certificados']" class="Solicitud de Certificados">Solicitud de Certificados</a>
+  </div>
 
-<form name="registro" novalidate>
+  <form name="registro" [formGroup]="datosGeneralesForm" (ngSubmit)="onSubmit()">
     <div class="row">
-        <section class="input-field col s12 m6">
-            <label for="">Codigo de Proyecto:</label><br><br>
-            <input type="text" [(ngModel)]="currentEntity.codigo" name="codigo" required pattern="[ñáéíóúA-Za-z ]+">
+      <section class="input-field col s12 m6">
+        <label for="">Codigo de Proyecto:</label><br><br>
+        <input type="text" formControlName="codigoProyecto" name="codigo">
+        <div *ngIf="codigoProyecto?.invalid && (codigoProyecto?.dirty || codigoProyecto?.touched)"
+          class="alert alert-danger ">
+          <div *ngIf="codigoProyecto?.errors">Código de Proyecto inválido.</div>
+        </div>
+      </section>
+      <section class="input-field col s12 m6">
+        <label for="">Nombre del Proyecto:</label><br><br>
+        <input type="text" formControlName="nombreProyecto" name="nombrep">
+        <div *ngIf="nombreProyecto?.invalid && (nombreProyecto?.dirty || nombreProyecto?.touched)"
+          class="alert alert-danger ">
+          <div *ngIf="nombreProyecto?.errors">
+            Nombre de proyecto inválido.
+          </div>
+        </div>
+      </section>
+      <div class="row">
+        <section class="input-field col s12 m9">
+          <label for="">Nombre del Instituto: </label><br><br>
+          <input type="email" formControlName="nombreInstituto" name="nombrei">
+          <div *ngIf="nombreInstituto?.invalid && (nombreInstituto?.dirty || nombreInstituto?.touched)"
+            class="alert alert-danger ">
+            <div *ngIf="nombreInstituto?.errors">
+              Campo requerido
+            </div>
+          </div>
         </section>
-        <section class="input-field col s12 m6">
-            <label for="">Nombre del Proyecto:</label><br><br>
-            <input type="text" [(ngModel)]="currentEntity.nombrep" name="nombrep"  pattern="[ñáéíóúA-Za-z ]+">
+        <section class="input-field col s12 m3">
+          <label for="">Ciclo:</label><br><br>
+          <input type="text" formControlName="ciclo" name="ciclo">
+          <div *ngIf="ciclo?.invalid && (ciclo?.dirty || ciclo?.touched)" class="alert alert-danger ">
+            <div *ngIf="ciclo?.errors">
+              Ciclo es un campo requerido
+            </div>
+          </div>
         </section>
+      </div>
+      <div class="row">
+        <section class="input-field col s12">
+          <label for="">Cobertura y Localización:</label><br><br>
+          <input type="text" class="materialize-textarea" formControlName="coberturaLocalizacion" name="cobertura">
+          <div
+            *ngIf="coberturaLocalizacion?.invalid && (coberturaLocalizacion?.dirty || coberturaLocalizacion?.touched)"
+            class="alert alert-danger ">
+            <div *ngIf="coberturaLocalizacion?.errors">
+              Cobertura y Localización inválido.
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
     <div class="row">
-      <section class="input-field col s12 m9">
-          <label for="">Nombre del Instituto: </label><br><br>
-          <input type="email" [(ngModel)]="currentEntity.nombrei" name="nombrei" >
+      <section class="input-field col s12 m3">
+        <label for="">Carrera:</label><br>
+        <input type="number" formControlName="carrera" name="carreraId">
+        <div *ngIf="carrera?.invalid && (carrera?.dirty || carrera?.touched)" class="alert alert-danger ">
+          <div *ngIf="carrera?.errors">
+            Campo requerido.
+          </div>
+        </div>
       </section>
       <section class="input-field col s12 m3">
-          <label for="">Ciclo:</label><br><br>
-          <input type="text" [(ngModel)]="currentEntity.ciclo" name="ciclo">
+        <label for="Modalidad">Modalidad:</label><br><br>
+        <form formGroupName="modalidad">
+          <input class="with-gap" type="radio" formControlName="modalidadRadio" name="modalidadRadio" id="presencial"
+            value="1">
+          <label for="presencial">Presencial</label> &nbsp;&nbsp;
+          <input class="with-gap" type="radio" formControlName="modalidadRadio" name="modalidadRadio" id="dual" value="2">
+          <label for="dual">Dual</label>
+        </form>
       </section>
-    </div>
-    <div class="row">
-        <section class="input-field col s12">
-            <label for="">Cobertura y Localización:</label><br><br>
-            <input type="text" class="materialize-textarea" [(ngModel)]="currentEntity.cobertura" name="cobertura" pattern="[ñáéíóú,.\w ]+">
+      <div class="row">
+        <section class="input-field col s12 m9">
+          <label for="">Fecha:</label><br><br>
+          <input type="date" formControlName="fecha" name="fecha">
+          <div *ngIf="fecha?.invalid && (fecha?.dirty || fecha?.touched)" class="alert alert-danger ">
+            <div *ngIf="fecha?.errors">
+              Campo requerido.
+            </div>
+          </div>
         </section>
-    </div>
-    <div class="row">
-    <section class="input-field col s12 m3">
-      <label for="">Carrera:</label><br>
-      <input type="number" [(ngModel)]="currentEntity.carreraId" name="carreraId">
-    </section>
-    <section class="input-field col s12 m3">
-      <label for="edad">Modalidad:</label><br><br>
-      <input class="with-gap" type="radio"  ng-model="" name="" id="presencial" value="presencial" required>
-      <label for="presencial">Presencial</label> &nbsp;&nbsp;
-      <input class="with-gap" type="radio" name="dual" id="dual" value="dual" required>
-      <label for="dual">Dual</label>
-    </section>
-    <div class="row">
-      <section class="input-field col s12 m9">
-        <label for="">Fecha:</label><br><br>
-        <input type="date" [(ngModel)]="currentEntity.fecha" name="fecha">
-    </section>
-    <section class="input-field col s12 m3">
-        <label for="">Plazo de Ejecución:</label><br><br>
-        <input type="date" [(ngModel)]="currentEntity.plazo" name="plazo">
-    </section>
-    </div>
-    <div class="row">
-      <section class="input-field col s12 m9">
-        <label for="">Financiamiento:</label><br><br>
-        <input type="date" [(ngModel)]="currentEntity.financiamiento" name="financiamiento">
-    </section>
-    <section class="input-field col s12 m3">
-        <label for="">Plazo de Vigencia del Convenio:</label><br><br>
-        <input type="date" [(ngModel)]="currentEntity.vigencia" name="vigencia">
-    </section>
-    </div>
-
-    <div class="row">
-      <section class="input-field col s12">
+        <section class="input-field col s12 m3">
+          <label for="">Plazo de Ejecución:</label><br><br>
+          <input type="date" formControlName="plazoEjecucion" name="plazo">
+          <div *ngIf="plazoEjecucion?.invalid && (plazoEjecucion?.dirty || plazoEjecucion?.touched)"
+            class="alert alert-danger ">
+            <div *ngIf="plazoEjecucion?.errors">
+              Campo requerido.
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row">
+        <section class="input-field col s12 m9">
+          <label for="">Financiamiento:</label><br><br>
+          <input type="date" formControlName="financiamiento" name="financiamiento">
+          <div *ngIf="financiamiento?.invalid && (financiamiento?.dirty || financiamiento?.touched)"
+            class="alert alert-danger ">
+            <div *ngIf="financiamiento?.errors">
+              Campo requerido.
+            </div>
+          </div>
+        </section>
+        <section class="input-field col s12 m3">
+          <label for="">Plazo de Vigencia del Convenio:</label><br><br>
+          <input type="date" formControlName="plazoVigenciaConvenio" name="vigencia">
+          <div
+            *ngIf="plazoVigenciaConvenio?.invalid && (plazoVigenciaConvenio?.dirty || plazoVigenciaConvenio?.touched)"
+            class="alert alert-danger ">
+            <div *ngIf="plazoVigenciaConvenio?.errors">
+              Campo requerido.
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row">
+        <section class="input-field col s12">
           <label for="">Fecha de Presentación:</label><br><br>
-          <input type="date" class="materialize-textarea" [(ngModel)]="currentEntity.fechaPresentacion" name="fechaPresentacion" pattern="[ñáéíóú,.\w ]+">
-      </section>
-    </div>
-    <div class="row">
-      <section class="input-field col s12">
+          <input type="date" class="materialize-textarea" formControlName="fechaPresentacion" name="fechaPresentacion">
+          <div *ngIf="fechaPresentacion?.invalid && (fechaPresentacion?.dirty || fechaPresentacion?.touched)"
+            class="alert alert-danger ">
+            <div *ngIf="fechaPresentacion?.errors">
+              Campo requerido.
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row">
+        <section class="input-field col s12">
           <label for="">Fecha de Inicio:</label><br><br>
-          <input type="date" class="materialize-textarea" [(ngModel)]="currentEntity.fechaInicio" name="fechaInicio" pattern="[ñáéíóú,.\w ]+">
-      </section>
-    </div>
-    <div class="row">
-      <section class="input-field col s12">
+          <input type="date" class="materialize-textarea" formControlName="fechaInicio" name="fechaInicio">
+          <div *ngIf="fechaInicio?.invalid && (fechaInicio?.dirty || fechaInicio?.touched)" class="alert alert-danger ">
+            <div *ngIf="fechaInicio?.errors">
+              Campo requerido.
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row">
+        <section class="input-field col s12">
           <label for="">Fecha Final:</label><br><br>
-          <input type="date" class="materialize-textarea" [(ngModel)]="currentEntity.fechaFinal" name="fechaFinal" pattern="[ñáéíóú,.\w ]+">
-      </section>
-    </div>
-
-    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit" (click)="save()">Confirmar
+          <input type="date" class="materialize-textarea" formControlName="fechaFinal" name="fechaFinal">
+          <div *ngIf="fechaFinal?.invalid && (fechaFinal?.dirty || fechaFinal?.touched)" class="alert alert-danger ">
+            <div *ngIf="fechaFinal?.errors">
+              Campo requerido.
+            </div>
+          </div>
+        </section>
+      </div>
+      <button class="btn waves-effect waves-light right" type="submit" [disabled]="!datosGeneralesForm.valid">
+        Confirmar
         <i class="mdi-content-send right"></i>
-    </button>
-
-</div>
-</form>
+      </button>
+    </div>
+  </form>
 </div>
