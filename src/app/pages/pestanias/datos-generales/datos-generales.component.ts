@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DatosGenerales } from './datos-generales';
 import { DatosGeneralesService } from './datos-generales.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { customDateValidation } from 'src/app/shared/custom-date-validation.directive';
 
 @Component({
   selector: 'app-datos-generales',
@@ -45,13 +46,13 @@ export class DatosGeneralesComponent implements OnInit {
     modalidad: this.fb.group({
       modalidadRadio: ['1'],
     }),
-    fecha: [this.currentEntity.fecha, [Validators.required]],
-    plazoEjecucion: [this.currentEntity.plazo, [Validators.required]],
-    financiamiento: [this.currentEntity.financiamiento, [Validators.required]],
-    plazoVigenciaConvenio: [this.currentEntity.vigencia, [Validators.required]],
-    fechaPresentacion: [this.currentEntity.fechaPresentacion, [Validators.required]],
-    fechaInicio: [this.currentEntity.fechaInicio, [Validators.required]],
-    fechaFinal: [this.currentEntity.fechaFinal, [Validators.required]],
+    fecha: [this.currentEntity.fecha, [Validators.required, customDateValidation(3000)]],
+    plazoEjecucion: [this.currentEntity.plazo, [Validators.required, customDateValidation(3000)]],
+    financiamiento: [this.currentEntity.financiamiento, [Validators.required, customDateValidation(3000)]],
+    plazoVigenciaConvenio: [this.currentEntity.vigencia, [Validators.required, customDateValidation(3000)]],
+    fechaPresentacion: [this.currentEntity.fechaPresentacion, [Validators.required, customDateValidation(3000)]],
+    fechaInicio: [this.currentEntity.fechaInicio, [Validators.required, customDateValidation(3000)]],
+    fechaFinal: [this.currentEntity.fechaFinal, [Validators.required, customDateValidation(3000)]],
   });
 
   onSubmit() {

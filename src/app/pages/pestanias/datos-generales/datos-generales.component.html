@@ -114,8 +114,11 @@
           <label for="">Fecha:</label><br><br>
           <input type="date" formControlName="fecha" name="fecha">
           <div *ngIf="fecha?.invalid && (fecha?.dirty || fecha?.touched)" class="alert alert-danger ">
-            <div *ngIf="fecha?.errors">
-              Campo requerido.
+            <div *ngIf="fecha?.errors?.['required']">
+              Ingrese una fecha.
+            </div>
+            <div *ngIf="fecha?.errors?.['customDateValidation']">
+              Ingrese un año menor a 3000.
             </div>
           </div>
         </section>
@@ -124,8 +127,11 @@
           <input type="date" formControlName="plazoEjecucion" name="plazo">
           <div *ngIf="plazoEjecucion?.invalid && (plazoEjecucion?.dirty || plazoEjecucion?.touched)"
             class="alert alert-danger ">
-            <div *ngIf="plazoEjecucion?.errors">
-              Campo requerido.
+            <div *ngIf="plazoEjecucion?.errors?.['required']">
+              Ingrese una fecha.
+            </div>
+            <div *ngIf="plazoEjecucion?.errors?.['customDateValidation']">
+              Ingrese un año menor a 3000.
             </div>
           </div>
         </section>
@@ -136,8 +142,11 @@
           <input type="date" formControlName="financiamiento" name="financiamiento">
           <div *ngIf="financiamiento?.invalid && (financiamiento?.dirty || financiamiento?.touched)"
             class="alert alert-danger ">
-            <div *ngIf="financiamiento?.errors">
-              Campo requerido.
+            <div *ngIf="financiamiento?.errors?.['required']">
+              Ingrese una fecha.
+            </div>
+            <div *ngIf="financiamiento?.errors?.['customDateValidation']">
+              Ingrese un año menor a 3000.
             </div>
           </div>
         </section>
@@ -147,8 +156,11 @@
           <div
             *ngIf="plazoVigenciaConvenio?.invalid && (plazoVigenciaConvenio?.dirty || plazoVigenciaConvenio?.touched)"
             class="alert alert-danger ">
-            <div *ngIf="plazoVigenciaConvenio?.errors">
-              Campo requerido.
+            <div *ngIf="plazoVigenciaConvenio?.errors?.['required']">
+              Ingrese una fecha.
+            </div>
+            <div *ngIf="plazoVigenciaConvenio?.errors?.['customDateValidation']">
+              Ingrese un año menor a 3000.
             </div>
           </div>
         </section>
@@ -159,8 +171,11 @@
           <input type="date" class="materialize-textarea" formControlName="fechaPresentacion" name="fechaPresentacion">
           <div *ngIf="fechaPresentacion?.invalid && (fechaPresentacion?.dirty || fechaPresentacion?.touched)"
             class="alert alert-danger ">
-            <div *ngIf="fechaPresentacion?.errors">
-              Campo requerido.
+            <div *ngIf="fechaPresentacion?.errors?.['required']">
+              Ingrese una fecha.
+            </div>
+            <div *ngIf="fechaPresentacion?.errors?.['customDateValidation']">
+              Ingrese un año menor a 3000.
             </div>
           </div>
         </section>
@@ -170,8 +185,11 @@
           <label for="">Fecha de Inicio:</label><br><br>
           <input type="date" class="materialize-textarea" formControlName="fechaInicio" name="fechaInicio">
           <div *ngIf="fechaInicio?.invalid && (fechaInicio?.dirty || fechaInicio?.touched)" class="alert alert-danger ">
-            <div *ngIf="fechaInicio?.errors">
-              Campo requerido.
+            <div *ngIf="fechaInicio?.errors?.['required']">
+              Ingrese una fecha.
+            </div>
+            <div *ngIf="fechaInicio?.errors?.['customDateValidation']">
+              Ingrese un año menor a 3000.
             </div>
           </div>
         </section>
@@ -181,8 +199,11 @@
           <label for="">Fecha Final:</label><br><br>
           <input type="date" class="materialize-textarea" formControlName="fechaFinal" name="fechaFinal">
           <div *ngIf="fechaFinal?.invalid && (fechaFinal?.dirty || fechaFinal?.touched)" class="alert alert-danger ">
-            <div *ngIf="fechaFinal?.errors">
-              Campo requerido.
+            <div *ngIf="fechaFinal?.errors?.['required']">
+              Ingrese una fecha.
+            </div>
+            <div *ngIf="fechaFinal?.errors?.['customDateValidation']">
+              Ingrese un año menor a 3000.
             </div>
           </div>
         </section>
