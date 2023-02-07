@@ -40,7 +40,8 @@
         <input type="text" formControlName="codigoProyecto" name="codigo">
         <div *ngIf="codigoProyecto?.invalid && (codigoProyecto?.dirty || codigoProyecto?.touched)"
           class="alert alert-danger ">
-          <div *ngIf="codigoProyecto?.errors">Código de Proyecto inválido.</div>
+          <div *ngIf="codigoProyecto?.errors?.['required']">Ingrese el código de proyecto.</div>
+          <div *ngIf="codigoProyecto?.errors?.['pattern']">Ingrese un valor alfanumérico, ejemplo: QZ09.</div>
         </div>
       </section>
       <section class="input-field col s12 m6">

@@ -36,32 +36,20 @@ export class DatosGeneralesComponent implements OnInit {
   };
 
   datosGeneralesForm = this.fb.group({
-    codigoProyecto: [
-      this.currentEntity.codigo,
-      [Validators.required, Validators.pattern('[ñáéíóúA-Za-z ]+')],
-    ],
-    nombreProyecto: [
-      this.currentEntity.nombrep,
-      [Validators.required, Validators.pattern('[ñáéíóúA-Za-z ]+')],
-    ],
+    codigoProyecto: [this.currentEntity.codigo, [Validators.required, Validators.pattern(/^[a-z0-9]+$/i)]],
+    nombreProyecto: [this.currentEntity.nombrep, [Validators.required, Validators.pattern('[ñáéíóúA-Za-z ]+')]],
     nombreInstituto: [this.currentEntity.nombrei, [Validators.required]],
     ciclo: [this.currentEntity.ciclo, [Validators.required]],
-    coberturaLocalizacion: [
-      this.currentEntity.cobertura,
-      [Validators.required, Validators.pattern('[ñáéíóúA-Za-z ]+')],
-    ],
+    coberturaLocalizacion: [this.currentEntity.cobertura, [Validators.required, Validators.pattern('[ñáéíóúA-Za-z ]+')]],
     carrera: [this.currentEntity.carreraId, [Validators.required]],
     modalidad: this.fb.group({
-      modalidadRadio: ["1"],
+      modalidadRadio: ['1'],
     }),
     fecha: [this.currentEntity.fecha, [Validators.required]],
     plazoEjecucion: [this.currentEntity.plazo, [Validators.required]],
     financiamiento: [this.currentEntity.financiamiento, [Validators.required]],
     plazoVigenciaConvenio: [this.currentEntity.vigencia, [Validators.required]],
-    fechaPresentacion: [
-      this.currentEntity.fechaPresentacion,
-      [Validators.required],
-    ],
+    fechaPresentacion: [this.currentEntity.fechaPresentacion, [Validators.required]],
     fechaInicio: [this.currentEntity.fechaInicio, [Validators.required]],
     fechaFinal: [this.currentEntity.fechaFinal, [Validators.required]],
   });
