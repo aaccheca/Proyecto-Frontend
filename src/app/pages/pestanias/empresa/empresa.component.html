@@ -96,24 +96,34 @@
         <label class="Titulo"><b>Dirección Matriz de Entidad Receptora</b></label><br><br>
       </section>
       <section class="input-field s12 m6">
-        <label for="nombre">Parroquia:</label><br>
-        <input type="text" formControlName="parroquiaMa" name="parroquiaMa">
-        <div *ngIf="parroquiaMa?.invalid && (parroquiaMa?.dirty || parroquiaMa?.touched)" class="alert alert-danger ">
-          <div *ngIf="parroquiaMa?.errors">Parroquia inválida.</div>
-        </div>
-      </section>
-      <section class="input-field s12 m6">
-        <label for="nombre">Provincia:</label><br>
-        <input type="text" formControlName="provinciaMa" name="provinciaMa">
+        <label for="nombre">Provincia:</label><br><br>
+        <select class="browser-default" formControlName="provinciaMa" (change)="onChangeProvinciaMatriz($event.target)"
+          name="provincia">
+          <option value="" disabled="" selected="">Seleccione una provincia</option>
+          <option *ngFor="let provincia of provinciasMapping" [value]="provincia.id">{{provincia.provincia}}</option>
+        </select>
         <div *ngIf="provinciaMa?.invalid && (provinciaMa?.dirty || provinciaMa?.touched)" class="alert alert-danger ">
-          <div *ngIf="provinciaMa?.errors">Provincia inválida.</div>
+          <div *ngIf="provinciaMa?.errors">Seleccione una provicincia</div>
         </div>
       </section>
       <section class="input-field s12 m6">
-        <label for="nombre">Cantón:</label><br>
-        <input type="text" formControlName="cantonMa" name="cantonMa">
+        <label for="nombre">Cantón:</label><br><br>
+        <select class="browser-default" formControlName="cantonMa" (change)="onChangeCantonMatriz($event.target)">
+          <option value="" disabled="" selected="">Seleccione un cantón</option>
+          <option *ngFor="let canton of cantonesMa" [value]="canton.id">{{canton.canton}}</option>
+        </select>
         <div *ngIf="cantonMa?.invalid && (cantonMa?.dirty || cantonMa?.touched)" class="alert alert-danger ">
-          <div *ngIf="cantonMa?.errors">Cantón inválido.</div>
+          <div *ngIf="cantonMa?.errors">Seleccione un cantón inválido.</div>
+        </div>
+      </section>
+      <section class="input-field s12 m6">
+        <label for="nombre">Parroquia:</label><br><br>
+        <select class="browser-default" formControlName="parroquiaMa">
+          <option value="" disabled="" selected="">Seleccione una Parroquia</option>
+          <option *ngFor="let parroquia of parroquiasMa" [value]="parroquia.id">{{parroquia.parroquia}}</option>
+        </select>
+        <div *ngIf="parroquiaMa?.invalid && (parroquiaMa?.dirty || parroquiaMa?.touched)" class="alert alert-danger ">
+          <div *ngIf="parroquiaMa?.errors">Seleccione una parroquia.</div>
         </div>
       </section>
       <section class="input-field s12 m6">
@@ -128,24 +138,34 @@
         <label class="Titulo"><b>Dirección Sucursal de Entidad Receptora</b></label><br><br>
       </section>
       <section class="input-field s12 m6">
-        <label for="nombre">Parroquia:</label><br>
-        <input type="text" formControlName="parroquiaSu" name="parroquiaSu">
-        <div *ngIf="parroquiaSu?.invalid && (parroquiaSu?.dirty || parroquiaSu?.touched)" class="alert alert-danger ">
-          <div *ngIf="parroquiaSu?.errors">Parroquia inválida.</div>
-        </div>
-      </section>
-      <section class="input-field s12 m6">
-        <label for="nombre">Provincia:</label><br>
-        <input type="text" formControlName="provinciaSu" name="provinciaSu">
+        <label for="nombre">Provincia:</label><br><br>
+        <select class="browser-default" formControlName="provinciaSu" (change)="onChangeProvinciaSucursal($event.target)"
+          name="provincia">
+          <option value="" disabled="" selected="">Seleccione una provincia</option>
+          <option *ngFor="let provincia of provinciasMapping" [value]="provincia.id">{{provincia.provincia}}</option>
+        </select>
         <div *ngIf="provinciaSu?.invalid && (provinciaSu?.dirty || provinciaSu?.touched)" class="alert alert-danger ">
-          <div *ngIf="provinciaSu?.errors">Provincia inválida.</div>
+          <div *ngIf="provinciaSu?.errors">Seleccione una provicincia</div>
         </div>
       </section>
       <section class="input-field s12 m6">
-        <label for="nombre">Cantón:</label><br>
-        <input type="text" formControlName="cantonSu" name="cantonSu">
+        <label for="nombre">Cantón:</label><br><br>
+        <select class="browser-default" formControlName="cantonSu" (change)="onChangeCantonSucursal($event.target)">
+          <option value="" disabled="" selected="">Seleccione un cantón</option>
+          <option *ngFor="let canton of cantonesSu" [value]="canton.id">{{canton.canton}}</option>
+        </select>
         <div *ngIf="cantonSu?.invalid && (cantonSu?.dirty || cantonSu?.touched)" class="alert alert-danger ">
-          <div *ngIf="cantonSu?.errors">Cantón inválido.</div>
+          <div *ngIf="cantonSu?.errors">Seleccione un cantón inválido.</div>
+        </div>
+      </section>
+      <section class="input-field s12 m6">
+        <label for="nombre">Parroquia:</label><br><br>
+        <select class="browser-default" formControlName="parroquiaSu">
+          <option value="" disabled="" selected="">Seleccione una Parroquia</option>
+          <option *ngFor="let parroquia of parroquiasSu" [value]="parroquia.id">{{parroquia.parroquia}}</option>
+        </select>
+        <div *ngIf="parroquiaSu?.invalid && (parroquiaSu?.dirty || parroquiaSu?.touched)" class="alert alert-danger ">
+          <div *ngIf="parroquiaSu?.errors">Seleccione una parroquia.</div>
         </div>
       </section>
       <section class="input-field s12 m6">
