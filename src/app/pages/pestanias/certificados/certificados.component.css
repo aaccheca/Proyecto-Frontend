@@ -462,7 +462,7 @@ margin: 0px 0px 10px 13px;
 }
 
 .pagination{
-  margin-left: 24rem;
+  margin-left: 25rem;
 }
 
 .switch{
@@ -477,21 +477,21 @@ margin: 0px 0px 10px 13px;
 }
 
 .revision{
-  background-color: rgb(242, 242, 16);
+  background-color: #3965B8;
   text-align: center;
   color: black;
 }
 
 .aprobado{
-  background-color: rgb(53, 213, 36);
+  background-color: white;
   text-align: center;
   color: black;
 }
 
 .rechazado{
-  background-color: rgb(208, 3, 3);
+  background-color: black;
   text-align: center;
-  color: black;
+  color: white;
 }
 
 .portafolio{
@@ -502,4 +502,44 @@ margin: 0px 0px 10px 13px;
 
 .centerp{
   margin-left: 10px;
+}
+
+
+.pull-right{
+  position: relative;
+  left: 10px;
+  bottom: 2px;
+}
+
+
+
+.small{
+  width: 20px;
+}
+
+
+.pullsito{
+  position: relative;
+  left: 3px;
+  bottom: 2px;
+  width: 30px;
+  border-radius:100 100px 100px 100px;
+}
+
+
+@media only screen and (max-width: 1390px) {
+  .table {
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 1200px) {
+.pagination{
+  margin-left: 0rem;
+}
+}
+
+.waves-effect{
+  background-color: #3965B8!important;
 }

@@ -401,3 +401,32 @@ height: 100px !important;
 border-style: solid !important;
 border-width: 2px 2px 2px 2px !important;
 }
+
+
+.pull-right{
+  position: relative;
+  left: 10px;
+  bottom: 2px;
+}
+
+
+
+.small{
+  width: 20px;
+}
+
+
+.pullsito{
+  position: relative;
+  left: 3px;
+  bottom: 2px;
+  width: 30px;
+  border-radius:100 100px 100px 100px;
+}
+
+
+
+
+.waves-effect{
+  background-color: #3965B8!important;
+}

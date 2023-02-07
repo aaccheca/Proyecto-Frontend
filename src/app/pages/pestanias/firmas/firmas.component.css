@@ -375,13 +375,10 @@ justify-content: center;
 }
 
 
-.orange{
-background-color: #f7BD56 !important;
+.azul{
+  background-color: #3965B8!important;
 }
 
-.orange2{
-background-color: #D53507 !important;
-}
 
 /*!
 * Materialize v0.96.1 (http://materializecss.com)
@@ -426,4 +423,32 @@ max-width: 300px;
 }
 .sizze6{
 max-width: 1300px;
+}
+
+
+.pull-right{
+  position: relative;
+  left: 10px;
+  bottom: 2px;
+}
+
+
+.small{
+  width: 20px;
+}
+
+
+.pullsito{
+  position: relative;
+  left: 3px;
+  bottom: 2px;
+  width: 30px;
+  border-radius:100 100px 100px 100px;
+}
+
+
+
+
+.waves-effect{
+  background-color: #3965B8!important;
 }

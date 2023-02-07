@@ -55,6 +55,7 @@ import { ListaFundacionTutorBuscarComponent } from './docente-tutor/lista-fundac
 
 import { ListaEstudianteTutorFormComponent } from './docente-tutor/lista-estudiantes-tutor/lista-estudiante-tutor-form/lista-estudiante-tutor-form.component';
 import { ListaEstudianteTutorBuscarComponent } from './docente-tutor/lista-estudiantes-tutor/lista-estudiante-tutor-buscar/lista-estudiante-tutor-buscar.component';
+import { MenuComponent } from './pestanias/menu/menu.component';
 
 
 
@@ -104,6 +105,7 @@ import { ListaEstudianteTutorBuscarComponent } from './docente-tutor/lista-estud
     ObservacionesComponent,
     PlanDeTrabajoComponent,
     DashboardComponent,
+    MenuComponent,
 
 
     PortafolioTutorFormularioComponent,
@@ -133,10 +135,10 @@ import { ListaEstudianteTutorBuscarComponent } from './docente-tutor/lista-estud
     ListaEstudiantesGeneralComponent,
 
 
-    
+
     PortafolioTutorFormularioComponent,
 
-    
+
 
 
 
@@ -167,6 +169,7 @@ import { ListaEstudianteTutorBuscarComponent } from './docente-tutor/lista-estud
     IntegrantesComponent,
     ObservacionesComponent,
     PlanDeTrabajoComponent,
+    MenuComponent
 
   ],
   imports: [

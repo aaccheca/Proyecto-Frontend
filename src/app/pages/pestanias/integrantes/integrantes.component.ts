@@ -39,7 +39,7 @@ export class IntegrantesComponent implements OnInit {
     numEmpresarial: '',
     nombreEmpresarial: '',
     telfEmpresarial: '',
-    cargoEmpresarial: '',
+    cargoEmpresarial: ''
   };
 
   ngOnInit(): void {
@@ -168,7 +168,7 @@ export class IntegrantesComponent implements OnInit {
         numEmpresarial: '',
         nombreEmpresarial: '',
         telfEmpresarial: '',
-        cargoEmpresarial: '',
+        cargoEmpresarial: ''
       };
     });
   }

@@ -380,8 +380,8 @@ justify-content: center;
   background-color: #39cbe8 !important;
 }
 
-.orange2{
-  background-color: #D53507 !important;
+.azul{
+  background-color: #3965B8!important;
 }
 
 /*!
@@ -406,8 +406,12 @@ justify-content: center;
 }
 
 .border{
-  border-width: 3px 0px 3px 0px !important;
+  border-width: 3px 5px 3px 5px !important;
   border-color: black !important;
+}
+
+.input-field2{
+  margin-right: 150px;
 }
 
 .sizze{
@@ -427,4 +431,33 @@ justify-content: center;
 }
 .sizze6{
   max-width: 1300px;
+}
+
+
+
+.pull-right{
+  position: relative;
+  left: 10px;
+  bottom: 2px;
+}
+
+
+.small{
+  width: 20px;
+}
+
+
+.pullsito{
+  position: relative;
+  left: 3px;
+  bottom: 2px;
+  width: 30px;
+  border-radius:100 100px 100px 100px;
+}
+
+
+
+
+.waves-effect{
+  background-color: #3965B8!important;
 }

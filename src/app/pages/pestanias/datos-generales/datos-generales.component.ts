@@ -5,6 +5,11 @@ import { DatosGeneralesService } from './datos-generales.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { customDateValidation } from 'src/app/shared/custom-date-validation.directive';
 
+interface Carrera {
+  id: number;
+  carrera: string;
+}
+
 @Component({
   selector: 'app-datos-generales',
   templateUrl: './datos-generales.component.html',
@@ -18,9 +23,38 @@ export class DatosGeneralesComponent implements OnInit {
       }
     });
   }
+
+  carreraId: Carrera[] = [];
+
+  carrerasMapping: Carrera[] = [
+    {
+      id:1,
+      carrera: 'Software',
+    },
+    {
+      id:2,
+      carrera: 'Turismo',
+    },
+    {
+      id:3,
+      carrera: 'Diseño',
+    },
+    {
+      id:4,
+      carrera: 'Bomberos',
+    }];
+
+
+
+  /*getCarreras(cantonId: number) {
+    return this.carrerasMapping
+      .map((prov) => prov.carrera)
+      .flat();
+  }*/
+
   currentEntity: DatosGenerales = {
     dgId: 0,
-    codigo: 0,
+    codigo: '',
     nombrep: '',
     nombrei: '',
     ciclo: '',
@@ -55,19 +89,20 @@ export class DatosGeneralesComponent implements OnInit {
     fechaFinal: [this.currentEntity.fechaFinal, [Validators.required, customDateValidation(3000)]],
   });
 
+
   onSubmit() {
     console.warn(this.datosGeneralesForm.value);
     console.table(this.currentEntity);
     this.datosGeneralesService.save(this.currentEntity).subscribe(() => {
       this.currentEntity = {
         dgId: 0,
-        codigo: 0,
+        codigo: '',
         nombrep: '',
         nombrei: '',
         ciclo: '',
         cobertura: '',
-        carreraId: 0,
-        modalidadId: 2,
+        carreraId: 1,
+        modalidadId: 1,
         fecha: '',
         plazo: '',
         financiamiento: '',

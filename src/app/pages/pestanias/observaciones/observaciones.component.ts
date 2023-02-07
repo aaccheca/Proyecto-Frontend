@@ -19,14 +19,14 @@ export class ObservacionesComponent implements OnInit {
   currentEntity: Observaciones = {
     observacionesId: 0,
     estado: '',
-    observaciones: '',
+    observacioness: '',
   };
 
   observacionesForm = this.fb.group({
     estado: this.fb.group({
       estadoRadio: [this.currentEntity.estado, [Validators.required]],
     }),
-    observaciones: [this.currentEntity.observaciones, [Validators.required]],
+    observaciones: [this.currentEntity.observacioness, [Validators.required]],
   });
 
   ngOnInit(): void {
@@ -39,11 +39,11 @@ export class ObservacionesComponent implements OnInit {
 
   onSubmit(): void {
     console.table(this.currentEntity);
-    this.observacionesService.save(this.observacionesForm.value as Observaciones).subscribe(() => {
+    this.observacionesService.save(this.currentEntity).subscribe(() => {
       this.currentEntity = {
         observacionesId: 0,
         estado: '',
-        observaciones: '',
+        observacioness: '',
       };
     });
   }

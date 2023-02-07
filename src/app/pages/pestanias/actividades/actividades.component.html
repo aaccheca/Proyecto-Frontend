@@ -8,29 +8,29 @@
 
 <div class="card-body">
 
-                  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
-                    <i class="mdi-content-send right"></i>
-                  </button>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar PDF
+    <img class="pullsito" src="../../../../assets/image/pdf.png" alt="">
+</button>&nbsp;&nbsp;&nbsp;
 
-                  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
-                    <i class="mdi-content-send right"></i>
-                  </button>
+<button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar Convenio
+    <img class="pullsito" src="../../../../assets/image/convenio.png" alt="">
+</button>&nbsp;&nbsp;&nbsp;
 
-                  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
-                    <i class="mdi-content-send right"></i>
-                  </button><br><br>
+<button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar ITV
+</button>
+<br><br>
                   <div class="pestanas">
-                    <a [routerLink]="['/pages/datos-generales']" class="Datos Generales">Datos Generales</a>
-                    <a [routerLink]="['/pages/empresa']" class="Empresa">Empresa</a>
-                    <a [routerLink]="['/pages/integrantes']" class="Integrantes">Integrantes</a>
-                    <a [routerLink]="['/pages/actividades']" class="Actividades">Actividades</a>
-                    <a [routerLink]="['/pages/plan-de-trabajo']" class="Plan de Trabajo">Plan de Trabajo</a>
-                    <a [routerLink]="['/pages/firmas']" class="Firma">Firmas</a>
-                    <a [routerLink]="['/pages/bibliografia']" class="Bibliografía">Bibliografía</a>
-                    <a [routerLink]="['/pages/anexos']" class="Anexos">Anexos</a>
-                    <a [routerLink]="['/pages/observaciones']" class="Observaciones">Observaciones</a>
-                    <a [routerLink]="['/pages/documentos']" class="Adjuntar Documentos">Adjuntar Documentos</a>
-                    <a [routerLink]="['/pages/certificados']" class="Solicitud de Certificados">Solicitud de Certificados</a>
+                    <a [routerLink]="['/pages/datos-generales',currentEntity.actividadesId]" class="Datos Generales">Datos Generales</a>
+                    <a [routerLink]="['/pages/empresa',currentEntity.actividadesId]" class="Empresa">Empresa</a>
+                    <a [routerLink]="['/pages/integrantes',currentEntity.actividadesId]" class="Integrantes">Integrantes</a>
+                    <a [routerLink]="['/pages/actividades',currentEntity.actividadesId]" class="Actividades">Actividades</a>
+                    <a [routerLink]="['/pages/plan-de-trabajo',currentEntity.actividadesId]" class="Plan de Trabajo">Plan de Trabajo</a>
+                    <a [routerLink]="['/pages/firmas',currentEntity.actividadesId]" class="Firma">Firmas</a>
+                    <a [routerLink]="['/pages/bibliografia',currentEntity.actividadesId]" class="Bibliografía">Bibliografía</a>
+                    <a [routerLink]="['/pages/anexos',currentEntity.actividadesId]" class="Anexos">Anexos</a>
+                    <a [routerLink]="['/pages/observaciones',currentEntity.actividadesId]" class="Observaciones">Observaciones</a>
+                    <a [routerLink]="['/pages/documentos',currentEntity.actividadesId]" class="Adjuntar Documentos">Adjuntar Documentos</a>
+                    <a [routerLink]="['/pages/certificados',currentEntity.actividadesId]" class="Solicitud de Certificados">Solicitud de Certificados</a>
                   </div>
 
 <form name="registro" novalidate>
@@ -126,7 +126,9 @@
   </div>
 
   <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit" (click)="save()">Confirmar
-      <i class="mdi-content-send right"></i>
+
+      <img class="small pull-right" src="../../../../assets/image/visto.png" alt="">
+
   </button>
 </form>
 </div>

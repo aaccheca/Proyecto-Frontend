@@ -7,37 +7,36 @@
 </script>
 
 <div class="card-body">
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar PDF
+    <img class="pullsito" src="../../../../assets/image/pdf.png" alt="">
+</button>&nbsp;&nbsp;&nbsp;
 
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
-    <i class="mdi-content-send right"></i>
-  </button>
+<button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar Convenio
+    <img class="pullsito" src="../../../../assets/image/convenio.png" alt="">
+</button>&nbsp;&nbsp;&nbsp;
 
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
-    <i class="mdi-content-send right"></i>
-  </button>
-
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
-    <i class="mdi-content-send right"></i>
-  </button><br><br>
+<button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar ITV
+</button>
+<br><br>
   <div class="pestanas">
-    <a [routerLink]="['/pages/datos-generales']" class="Datos Generales">Datos Generales</a>
-    <a [routerLink]="['/pages/empresa']" class="Empresa">Empresa</a>
-    <a [routerLink]="['/pages/integrantes']" class="Integrantes">Integrantes</a>
-    <a [routerLink]="['/pages/actividades']" class="Actividades">Actividades</a>
-    <a [routerLink]="['/pages/plan-de-trabajo']" class="Plan de Trabajo">Plan de Trabajo</a>
-    <a [routerLink]="['/pages/firmas']" class="Firma">Firmas</a>
-    <a [routerLink]="['/pages/bibliografia']" class="Bibliografía">Bibliografía</a>
-    <a [routerLink]="['/pages/anexos']" class="Anexos">Anexos</a>
-    <a [routerLink]="['/pages/observaciones']" class="Observaciones">Observaciones</a>
-    <a [routerLink]="['/pages/documentos']" class="Adjuntar Documentos">Adjuntar Documentos</a>
-    <a [routerLink]="['/pages/certificados']" class="Solicitud de Certificados">Solicitud de Certificados</a>
+    <a [routerLink]="['/pages/datos-generales',currentEntity.planTrabajoId]" class="Datos Generales">Datos Generales</a>
+    <a [routerLink]="['/pages/empresa',currentEntity.planTrabajoId]" class="Empresa">Empresa</a>
+    <a [routerLink]="['/pages/integrantes',currentEntity.planTrabajoId]" class="Integrantes">Integrantes</a>
+    <a [routerLink]="['/pages/actividades',currentEntity.planTrabajoId]" class="Actividades">Actividades</a>
+    <a [routerLink]="['/pages/plan-de-trabajo',currentEntity.planTrabajoId]" class="Plan de Trabajo">Plan de Trabajo</a>
+    <a [routerLink]="['/pages/firmas',currentEntity.planTrabajoId]" class="Firma">Firmas</a>
+    <a [routerLink]="['/pages/bibliografia',currentEntity.planTrabajoId]" class="Bibliografía">Bibliografía</a>
+    <a [routerLink]="['/pages/anexos',currentEntity.planTrabajoId]" class="Anexos">Anexos</a>
+    <a [routerLink]="['/pages/observaciones',currentEntity.planTrabajoId]" class="Observaciones">Observaciones</a>
+    <a [routerLink]="['/pages/documentos',currentEntity.planTrabajoId]" class="Adjuntar Documentos">Adjuntar Documentos</a>
+    <a [routerLink]="['/pages/certificados',currentEntity.planTrabajoId]" class="Solicitud de Certificados">Solicitud de Certificados</a>
   </div>
 
   <form name="registro" [formGroup]="planTrabajoForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <section class="input-field col s12 m6">
         <label for="nombre">Descripción General del Proyecto:</label><br><br><br>
-        <input type="text" class="celeste" formControlName="descripcionGe" name="descripcionGe">
+        <input type="text" class="celeste" formControlName="descripcionGe" name="descripcionGe" [(ngModel)]="currentEntity.descripcionGe">
         <div *ngIf="descripcionGe?.invalid && (descripcionGe?.dirty || descripcionGe?.touched)"
           class="alert alert-danger ">
           <div *ngIf="descripcionGe?.errors">
@@ -49,7 +48,7 @@
     <div class="row">
       <section class="input-field col s12 m9">
         <label for="correo">Objetivo del Proyecto: </label><br><br><br>
-        <input type="email" class="celeste" formControlName="objetivoPro" name="objetivoPro">
+        <input type="email" class="celeste" formControlName="objetivoPro" name="objetivoPro" [(ngModel)]="currentEntity.objetivoPro">
         <div *ngIf="objetivoPro?.invalid && (objetivoPro?.dirty || objetivoPro?.touched)" class="alert alert-danger ">
           <div *ngIf="objetivoPro?.errors">
             Campo requerido.
@@ -60,7 +59,7 @@
     <div class="row">
       <section class="input-field col s12">
         <label for="direccion">Analisis Situacional:</label><br><br><br>
-        <input type="text" class="materialize-textarea celeste" formControlName="analisisSi" name="analisisSi">
+        <input type="text" class="materialize-textarea celeste" formControlName="analisisSi" name="analisisSi" [(ngModel)]="currentEntity.analisisSi">
         <div *ngIf="analisisSi?.invalid && (analisisSi?.dirty || analisisSi?.touched)" class="alert alert-danger ">
           <div *ngIf="analisisSi?.errors">
             Campo requerido.
@@ -72,7 +71,7 @@
     <div class="row">
       <section class="input-field col s12 m3">
         <label for="edad">Justificación:</label><br><br><br>
-        <input type="text" class="celeste" formControlName="justificacion" name="justificacion">
+        <input type="text" class="celeste" formControlName="justificacion" name="justificacion" [(ngModel)]="currentEntity.justificacion">
         <div *ngIf="justificacion?.invalid && (justificacion?.dirty || justificacion?.touched)"
           class="alert alert-danger ">
           <div *ngIf="justificacion?.errors">
@@ -92,24 +91,24 @@
       <div class="border">&nbsp;&nbsp;Objetivos Generales</div>
       <section class="input-field row s12 m6">
         <label for="nombre"
-          class="celeste fblack">Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objetivo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicador
-          Verificable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Metodos
+          class="fblack">Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objetivo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicador
+          Verificable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Metodos
           de Verifcación
         </label>
       </section>
       <section class="input-field col s12 m2 sizze">
-        <input type="text" formControlName="numObjetivos" name="numObjetivos">
+        <input type="text" formControlName="numObjetivos" name="numObjetivos" [(ngModel)]="currentEntity.numObjetivos">
       </section>
       <section class="input-field col s12 m2 sizze3">
-        <input type="text" formControlName="nombreOb" name="nombreOb">
-        <div *ngIf="nombreOb?.invalid && (nombreOb?.dirty || nombreOb?.touched)" class="alert alert-danger ">
+        <input type="text" formControlName="nombreOb" name="nombreOb" [(ngModel)]="currentEntity.nombreOb">
+        <div *ngIf="nombreOb?.invalid && (nombreOb?.dirty || nombreOb?.touched)" class="alert alert-danger">
           <div *ngIf="nombreOb?.errors">
             Campo requerido.
           </div>
         </div>
       </section>
       <section class="input-field col s12 m2 sizze3">
-        <input type="text" formControlName="objetivoOb" name="objetivoOb">
+        <input type="text" formControlName="objetivoOb" name="objetivoOb" [(ngModel)]="currentEntity.objetivoOb">
         <div *ngIf="objetivoOb?.invalid && (objetivoOb?.dirty || objetivoOb?.touched)" class="alert alert-danger ">
           <div *ngIf="objetivoOb?.errors">
             Campo requerido.
@@ -117,7 +116,7 @@
         </div>
       </section>
       <section class="input-field col s12 m2 sizze3">
-        <input type="text" formControlName="indicadorOb" name="indicadorOb">
+        <input type="text" formControlName="indicadorOb" name="indicadorOb" [(ngModel)]="currentEntity.indicadorOb">
         <div *ngIf="indicadorOb?.invalid && (indicadorOb?.dirty || indicadorOb?.touched)" class="alert alert-danger ">
           <div *ngIf="indicadorOb?.errors">
             Campo requerido.
@@ -125,7 +124,7 @@
         </div>
       </section>
       <section class="input-field col s12 m2 sizze3">
-        <input type="text" formControlName="metodosOb" name="metodosOb">
+        <input type="text" formControlName="metodosOb" name="metodosOb" [(ngModel)]="currentEntity.metodosOb">
         <div *ngIf="metodosOb?.invalid && (metodosOb?.dirty || metodosOb?.touched)" class="alert alert-danger ">
           <div *ngIf="metodosOb?.errors">
             Campo requerido.
@@ -139,14 +138,14 @@
       <div class="border">&nbsp;&nbsp;Criterios Economicos</div>
       <section class="input-field row s12 m6">
         <label for="nombre"
-          class="celeste fblack">Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Criterio
+          class="fblack">Num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Criterio
         </label>
       </section>
       <section class="input-field col s12 m2 sizze">
-        <input type="text" formControlName="numCriterios" name="numCriterios">
+        <input type="text" formControlName="numCriterios" name="numCriterios" [(ngModel)]="currentEntity.numCriterios">
       </section>
       <section class="input-field col s12 m2 sizze3">
-        <input type="text" formControlName="nombreCriterios" name="nombreCriterios">
+        <input type="text" formControlName="nombreCriterios" name="nombreCriterios" [(ngModel)]="currentEntity.nombreCriterios">
         <div *ngIf="nombreCriterios?.invalid && (nombreCriterios?.dirty || nombreCriterios?.touched)"
           class="alert alert-danger ">
           <div *ngIf="nombreCriterios?.errors">
@@ -155,7 +154,7 @@
         </div>
       </section>
       <section class="input-field col s12 m2 sizze6">
-        <input type="text" formControlName="criterioCriterios" name="criterioCriterios">
+        <input type="text" formControlName="criterioCriterios" name="criterioCriterios" [(ngModel)]="currentEntity.criterioCriterios">
         <div *ngIf="criterioCriterios?.invalid && (criterioCriterios?.dirty || criterioCriterios?.touched)"
           class="alert alert-danger ">
           <div *ngIf="criterioCriterios?.errors">
@@ -167,14 +166,14 @@
     <br><br>
     <div class="row">
       <section class="input-field row s12 m6">
-        <label for="nombre" class="orange2 fblack"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objetivos
-            Especificos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicadores
-            Verificables&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medios
+        <label for="nombre" class="azul fblack"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objetivos
+            Especificos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicadores
+            Verificables&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medios
             de Verificación
           </b></label>
       </section>
       <section class="input-field col s12 m2 sizze4">
-        <input type="text" formControlName="objetivosEs" name="objetivosEs">
+        <input type="text" formControlName="objetivosEs" name="objetivosEs" [(ngModel)]="currentEntity.objetivosEs">
         <div *ngIf="objetivosEs?.invalid && (objetivosEs?.dirty || objetivosEs?.touched)" class="alert alert-danger ">
           <div *ngIf="objetivosEs?.errors">
             Campo requerido.
@@ -182,7 +181,7 @@
         </div>
       </section>
       <section class="input-field col s12 m2 sizze6">
-        <input type="text" formControlName="indicadoresVe" name="indicadoresVe">
+        <input type="text" formControlName="indicadoresVe" name="indicadoresVe" [(ngModel)]="currentEntity.indicadoresVe">
         <div *ngIf="indicadoresVe?.invalid && (indicadoresVe?.dirty || indicadoresVe?.touched)"
           class="alert alert-danger ">
           <div *ngIf="indicadoresVe?.errors">
@@ -191,7 +190,7 @@
         </div>
       </section>
       <section class="input-field col s12 m2 sizze6">
-        <input type="text" formControlName="mediosVe" name="mediosVe">
+        <input type="text" formControlName="mediosVe" name="mediosVe" [(ngModel)]="currentEntity.mediosVe">
         <div *ngIf="mediosVe?.invalid && (mediosVe?.dirty || mediosVe?.touched)" class="alert alert-danger ">
           <div *ngIf="mediosVe?.errors">
             Campo requerido.
@@ -202,7 +201,7 @@
     <div class="row">
       <section class="input-field col s12 m3">
         <label for="edad">Conclusiones:</label><br><br><br>
-        <input type="text" class="celeste" formControlName="conclusiones" name="conclusiones">
+        <input type="text" class="celeste" formControlName="conclusiones" name="conclusiones" [(ngModel)]="currentEntity.conclusiones">
         <div *ngIf="conclusiones?.invalid && (conclusiones?.dirty || conclusiones?.touched)"
           class="alert alert-danger ">
           <div *ngIf="conclusiones?.errors">
@@ -215,7 +214,7 @@
     <div class="row">
       <section class="input-field col s12 m3">
         <label for="edad">Recomendaciones:</label><br><br><br>
-        <input type="number" class="celeste" formControlName="recomendaciones" name="recomendaciones">
+        <input type="text" class="celeste" formControlName="recomendaciones" name="recomendaciones" [(ngModel)]="currentEntity.recomendaciones">
         <div *ngIf="recomendaciones?.invalid && (recomendaciones?.dirty || recomendaciones?.touched)"
           class="alert alert-danger ">
           <div *ngIf="recomendaciones?.errors">
@@ -227,7 +226,9 @@
 
     <button class="btn waves-effect waves-light right" type="submit" [disabled]="!planTrabajoForm.valid">
       Confirmar
-      <i class="mdi-content-send right"></i>
+
+        <img class="small pull-right" src="../../../../assets/image/visto.png" alt="">
+
     </button>
   </form>
 </div>

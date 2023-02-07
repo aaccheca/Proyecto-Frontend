@@ -8,36 +8,36 @@
 
 <div class="card-body">
 
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
-    <i class="mdi-content-send right"></i>
-  </button>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar PDF
+      <img class="pullsito" src="../../../../assets/image/pdf.png" alt="">
+  </button>&nbsp;&nbsp;&nbsp;
 
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
-    <i class="mdi-content-send right"></i>
-  </button>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar Convenio
+      <img class="pullsito" src="../../../../assets/image/convenio.png" alt="">
+  </button>&nbsp;&nbsp;&nbsp;
 
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
-    <i class="mdi-content-send right"></i>
-  </button><br><br>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light " type="submit">Generar ITV
+  </button>
+  <br><br>
   <div class="pestanas">
-    <a [routerLink]="['/pages/datos-generales']" class="Datos Generales">Datos Generales</a>
-    <a [routerLink]="['/pages/empresa']" class="Empresa">Empresa</a>
-    <a [routerLink]="['/pages/integrantes']" class="Integrantes">Integrantes</a>
-    <a [routerLink]="['/pages/actividades']" class="Actividades">Actividades</a>
-    <a [routerLink]="['/pages/plan-de-trabajo']" class="Plan de Trabajo">Plan de Trabajo</a>
-    <a [routerLink]="['/pages/firmas']" class="Firma">Firmas</a>
-    <a [routerLink]="['/pages/bibliografia']" class="Bibliografía">Bibliografía</a>
-    <a [routerLink]="['/pages/anexos']" class="Anexos">Anexos</a>
-    <a [routerLink]="['/pages/observaciones']" class="Observaciones">Observaciones</a>
-    <a [routerLink]="['/pages/documentos']" class="Adjuntar Documentos">Adjuntar Documentos</a>
-    <a [routerLink]="['/pages/certificados']" class="Solicitud de Certificados">Solicitud de Certificados</a>
+    <a [routerLink]="['/pages/datos-generales',currentEntity.dgId]" class="Datos Generales">Datos Generales</a>
+    <a [routerLink]="['/pages/empresa',currentEntity.dgId]" class="Empresa">Empresa</a>
+    <a [routerLink]="['/pages/integrantes',currentEntity.dgId]" class="Integrantes">Integrantes</a>
+    <a [routerLink]="['/pages/actividades',currentEntity.dgId]" class="Actividades">Actividades</a>
+    <a [routerLink]="['/pages/plan-de-trabajo',currentEntity.dgId]" class="Plan de Trabajo">Plan de Trabajo</a>
+    <a [routerLink]="['/pages/firmas',currentEntity.dgId]" class="Firma">Firmas</a>
+    <a [routerLink]="['/pages/bibliografia',currentEntity.dgId]" class="Bibliografía">Bibliografía</a>
+    <a [routerLink]="['/pages/anexos',currentEntity.dgId]" class="Anexos">Anexos</a>
+    <a [routerLink]="['/pages/observaciones',currentEntity.dgId]" class="Observaciones">Observaciones</a>
+    <a [routerLink]="['/pages/documentos',currentEntity.dgId]" class="Adjuntar Documentos">Adjuntar Documentos</a>
+    <a [routerLink]="['/pages/certificados',currentEntity.dgId]" class="Solicitud de Certificados">Solicitud de Certificados</a>
   </div>
 
   <form name="registro" [formGroup]="datosGeneralesForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <section class="input-field col s12 m6">
         <label for="">Codigo de Proyecto:</label><br><br>
-        <input type="text" formControlName="codigoProyecto" name="codigo">
+        <input type="text" formControlName="codigoProyecto" name="codigo" [(ngModel)]="currentEntity.codigo">
         <div *ngIf="codigoProyecto?.invalid && (codigoProyecto?.dirty || codigoProyecto?.touched)"
           class="alert alert-danger ">
           <div *ngIf="codigoProyecto?.errors?.['required']">Ingrese el código de proyecto.</div>
@@ -46,7 +46,7 @@
       </section>
       <section class="input-field col s12 m6">
         <label for="">Nombre del Proyecto:</label><br><br>
-        <input type="text" formControlName="nombreProyecto" name="nombrep">
+        <input type="text" formControlName="nombreProyecto" name="nombrep" [(ngModel)]="currentEntity.nombrep">
         <div *ngIf="nombreProyecto?.invalid && (nombreProyecto?.dirty || nombreProyecto?.touched)"
           class="alert alert-danger ">
           <div *ngIf="nombreProyecto?.errors">
@@ -57,7 +57,7 @@
       <div class="row">
         <section class="input-field col s12 m9">
           <label for="">Nombre del Instituto: </label><br><br>
-          <input type="email" formControlName="nombreInstituto" name="nombrei">
+          <input type="email" formControlName="nombreInstituto" name="nombrei" [(ngModel)]="currentEntity.nombrei">
           <div *ngIf="nombreInstituto?.invalid && (nombreInstituto?.dirty || nombreInstituto?.touched)"
             class="alert alert-danger ">
             <div *ngIf="nombreInstituto?.errors">
@@ -67,7 +67,7 @@
         </section>
         <section class="input-field col s12 m3">
           <label for="">Ciclo:</label><br><br>
-          <input type="text" formControlName="ciclo" name="ciclo">
+          <input type="text" formControlName="ciclo" name="ciclo" [(ngModel)]="currentEntity.ciclo">
           <div *ngIf="ciclo?.invalid && (ciclo?.dirty || ciclo?.touched)" class="alert alert-danger ">
             <div *ngIf="ciclo?.errors">
               Ciclo es un campo requerido
@@ -78,7 +78,7 @@
       <div class="row">
         <section class="input-field col s12">
           <label for="">Cobertura y Localización:</label><br><br>
-          <input type="text" class="materialize-textarea" formControlName="coberturaLocalizacion" name="cobertura">
+          <input type="text" class="materialize-textarea" formControlName="coberturaLocalizacion" name="cobertura" [(ngModel)]="currentEntity.cobertura">
           <div
             *ngIf="coberturaLocalizacion?.invalid && (coberturaLocalizacion?.dirty || coberturaLocalizacion?.touched)"
             class="alert alert-danger ">
@@ -91,8 +91,11 @@
     </div>
     <div class="row">
       <section class="input-field col s12 m3">
-        <label for="">Carrera:</label><br>
-        <input type="number" formControlName="carrera" name="carreraId">
+        <label for="">Carrera:</label><br><br>
+        <select  class="browser-default" formControlName="carreraId" name="carrera">
+        <option value="" disabled="" selected="">Seleccione una Carrera</option>
+        <option *ngFor="let carrera of carrerasMapping" [value]="carrera.id">{{carrera.carrera}}</option>
+        </select>
         <div *ngIf="carrera?.invalid && (carrera?.dirty || carrera?.touched)" class="alert alert-danger ">
           <div *ngIf="carrera?.errors">
             Campo requerido.
@@ -111,8 +114,19 @@
       </section>
       <div class="row">
         <section class="input-field col s12 m9">
+          <label for="">Financiamiento:</label><br><br>
+          <input type="text" formControlName="financiamiento" name="financiamiento" [(ngModel)]="currentEntity.financiamiento">
+        </section>
+
+        <section class="input-field col s12 m3">
+          <label for="">Plazo de Ejecución:</label><br><br>
+          <input type="text" formControlName="plazoEjecucion" name="plazo" [(ngModel)]="currentEntity.plazo">
+        </section>
+      </div>
+      <div class="row">
+        <section class="input-field col s12 m9">
           <label for="">Fecha:</label><br><br>
-          <input type="date" formControlName="fecha" name="fecha">
+          <input type="date" formControlName="fecha" name="fecha" [(ngModel)]="currentEntity.fecha">
           <div *ngIf="fecha?.invalid && (fecha?.dirty || fecha?.touched)" class="alert alert-danger ">
             <div *ngIf="fecha?.errors?.['required']">
               Ingrese una fecha.
@@ -123,36 +137,8 @@
           </div>
         </section>
         <section class="input-field col s12 m3">
-          <label for="">Plazo de Ejecución:</label><br><br>
-          <input type="date" formControlName="plazoEjecucion" name="plazo">
-          <div *ngIf="plazoEjecucion?.invalid && (plazoEjecucion?.dirty || plazoEjecucion?.touched)"
-            class="alert alert-danger ">
-            <div *ngIf="plazoEjecucion?.errors?.['required']">
-              Ingrese una fecha.
-            </div>
-            <div *ngIf="plazoEjecucion?.errors?.['customDateValidation']">
-              Ingrese un año menor a 3000.
-            </div>
-          </div>
-        </section>
-      </div>
-      <div class="row">
-        <section class="input-field col s12 m9">
-          <label for="">Financiamiento:</label><br><br>
-          <input type="date" formControlName="financiamiento" name="financiamiento">
-          <div *ngIf="financiamiento?.invalid && (financiamiento?.dirty || financiamiento?.touched)"
-            class="alert alert-danger ">
-            <div *ngIf="financiamiento?.errors?.['required']">
-              Ingrese una fecha.
-            </div>
-            <div *ngIf="financiamiento?.errors?.['customDateValidation']">
-              Ingrese un año menor a 3000.
-            </div>
-          </div>
-        </section>
-        <section class="input-field col s12 m3">
           <label for="">Plazo de Vigencia del Convenio:</label><br><br>
-          <input type="date" formControlName="plazoVigenciaConvenio" name="vigencia">
+          <input type="date" formControlName="plazoVigenciaConvenio" name="vigencia" [(ngModel)]="currentEntity.vigencia">
           <div
             *ngIf="plazoVigenciaConvenio?.invalid && (plazoVigenciaConvenio?.dirty || plazoVigenciaConvenio?.touched)"
             class="alert alert-danger ">
@@ -168,7 +154,7 @@
       <div class="row">
         <section class="input-field col s12">
           <label for="">Fecha de Presentación:</label><br><br>
-          <input type="date" class="materialize-textarea" formControlName="fechaPresentacion" name="fechaPresentacion">
+          <input type="date" class="materialize-textarea" formControlName="fechaPresentacion" name="fechaPresentacion" [(ngModel)]="currentEntity.fechaPresentacion">
           <div *ngIf="fechaPresentacion?.invalid && (fechaPresentacion?.dirty || fechaPresentacion?.touched)"
             class="alert alert-danger ">
             <div *ngIf="fechaPresentacion?.errors?.['required']">
@@ -183,7 +169,7 @@
       <div class="row">
         <section class="input-field col s12">
           <label for="">Fecha de Inicio:</label><br><br>
-          <input type="date" class="materialize-textarea" formControlName="fechaInicio" name="fechaInicio">
+          <input type="date" class="materialize-textarea" formControlName="fechaInicio" name="fechaInicio" [(ngModel)]="currentEntity.fechaInicio">
           <div *ngIf="fechaInicio?.invalid && (fechaInicio?.dirty || fechaInicio?.touched)" class="alert alert-danger ">
             <div *ngIf="fechaInicio?.errors?.['required']">
               Ingrese una fecha.
@@ -197,7 +183,7 @@
       <div class="row">
         <section class="input-field col s12">
           <label for="">Fecha Final:</label><br><br>
-          <input type="date" class="materialize-textarea" formControlName="fechaFinal" name="fechaFinal">
+          <input type="date" class="materialize-textarea" formControlName="fechaFinal" name="fechaFinal" [(ngModel)]="currentEntity.fechaFinal">
           <div *ngIf="fechaFinal?.invalid && (fechaFinal?.dirty || fechaFinal?.touched)" class="alert alert-danger ">
             <div *ngIf="fechaFinal?.errors?.['required']">
               Ingrese una fecha.
@@ -210,7 +196,7 @@
       </div>
       <button class="btn waves-effect waves-light right" type="submit" [disabled]="!datosGeneralesForm.valid">
         Confirmar
-        <i class="mdi-content-send right"></i>
+          <img class="small pull-right" src="../../../../assets/image/visto.png" alt="">
       </button>
     </div>
   </form>

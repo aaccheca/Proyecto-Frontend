@@ -124,13 +124,13 @@ export class EmpresaComponent implements OnInit {
     actividadEc: '',
     correoE: '',
     telfCo: '',
-    parroquiaMa: '',
-    provinciaMa: '',
-    cantonMa: '',
+    parroquiaMa: 1,
+    provinciaMa: 1,
+    cantonMa: 1,
     direccionMa: '',
-    parroquiaSu: '',
-    provinciaSu: '',
-    cantonSu: '',
+    parroquiaSu: 1,
+    provinciaSu: 1,
+    cantonSu: 1,
     direccionSu: '',
     numEE: '',
     totalEE: '',
@@ -178,7 +178,7 @@ export class EmpresaComponent implements OnInit {
     } else {
       this.parroquiasMa = [];
     }
-    this.parroquiaMa?.setValue('');
+    this.parroquiaMa?.setValue(0);
   }
 
   onChangeProvinciaMatriz(provId: any) {
@@ -189,8 +189,8 @@ export class EmpresaComponent implements OnInit {
       this.cantonesMa = [];
       this.parroquiasMa = [];
     }
-    this.cantonMa?.setValue('');
-    this.parroquiaMa?.setValue('');
+    this.cantonMa?.setValue(0);
+    this.parroquiaMa?.setValue(0);
   }
 
   onChangeCantonSucursal(cantonId: any) {
@@ -199,7 +199,7 @@ export class EmpresaComponent implements OnInit {
     } else {
       this.parroquiasSu = [];
     }
-    this.parroquiaSu?.setValue('');
+    this.parroquiaSu?.setValue(0);
   }
 
   onChangeProvinciaSucursal(provId: any) {
@@ -210,14 +210,14 @@ export class EmpresaComponent implements OnInit {
       this.cantonesSu = [];
       this.parroquiasSu = [];
     }
-    this.cantonSu?.setValue('');
-    this.parroquiaSu?.setValue('');
+    this.cantonSu?.setValue(0);
+    this.parroquiaSu?.setValue(0);
   }
 
   onSubmit() {
     console.warn(this.empresaForm.value);
     console.table(this.currentEntity);
-    this.empresaService.save(this.empresaForm.value as Empresa).subscribe(() => {
+    this.empresaService.save(this.currentEntity).subscribe(() => {
       this.currentEntity = {
         empresaId: 0,
         nombreE: '',
@@ -227,13 +227,13 @@ export class EmpresaComponent implements OnInit {
         actividadEc: '',
         correoE: '',
         telfCo: '',
-        parroquiaMa: '',
-        provinciaMa: '',
-        cantonMa: '',
+        parroquiaMa: 1,
+        provinciaMa: 1,
+        cantonMa: 1,
         direccionMa: '',
-        parroquiaSu: '',
-        provinciaSu: '',
-        cantonSu: '',
+        parroquiaSu: 1,
+        provinciaSu: 1,
+        cantonSu: 1,
         direccionSu: '',
         numEE: '',
         totalEE: '',
