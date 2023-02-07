@@ -8,68 +8,78 @@
 
 <div class="card-body">
 
-                  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
-                    <i class="mdi-content-send right"></i>
-                  </button>
-
-                  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
-                    <i class="mdi-content-send right"></i>
-                  </button>
-
-                  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
-                    <i class="mdi-content-send right"></i>
-                  </button><br><br>
-                  <div class="pestanas">
-                    <a [routerLink]="['/pages/datos-generales']" class="Datos Generales">Datos Generales</a>
-                    <a [routerLink]="['/pages/empresa']" class="Empresa">Empresa</a>
-                    <a [routerLink]="['/pages/integrantes']" class="Integrantes">Integrantes</a>
-                    <a [routerLink]="['/pages/actividades']" class="Actividades">Actividades</a>
-                    <a [routerLink]="['/pages/plan-de-trabajo']" class="Plan de Trabajo">Plan de Trabajo</a>
-                    <a [routerLink]="['/pages/firmas']" class="Firma">Firmas</a>
-                    <a [routerLink]="['/pages/bibliografia']" class="Bibliografía">Bibliografía</a>
-                    <a [routerLink]="['/pages/anexos']" class="Anexos">Anexos</a>
-                    <a [routerLink]="['/pages/observaciones']" class="Observaciones">Observaciones</a>
-                    <a [routerLink]="['/pages/documentos']" class="Adjuntar Documentos">Adjuntar Documentos</a>
-                    <a [routerLink]="['/pages/certificados']" class="Solicitud de Certificados">Solicitud de Certificados</a>
-                  </div>
-
-<form name="registro" novalidate>
-
-  <div class="row">
-      <section class="input-field col">
-        <label for="nombre"><h5><b>&nbsp;Estado</b></h5></label><br><br><br>
-        <input type="checkbox" ng-model="" name="" id="aprobado" required>
-        <label for="aprobado" class="bgcolor">Aprobado</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="enrevision" required>
-        <label for="enrevision">En Revisión</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="corregido" required>
-        <label for="corregido" class="bgcolor">Corregido</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="rechazado" required>
-        <label for="rechazado">Rechazado</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="enviado" required>
-        <label for="enviado" class="bgcolor">Enviado a Senecyt</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="porenviar" required>
-        <label for="porenviar">Por enviar a Senecyt</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="desarrollo" required>
-        <label for="desarrollo">En Desarrollo</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="terminado" required>
-        <label for="terminado" class="bgcolor">Terminado</label>&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" ng-model="" name="" id="suspendido" required>
-        <label for="suspendido">Suspendido</label>&nbsp;&nbsp;&nbsp;
-      </section>
-  </div>
-  <div class="row">
-    <section class="input-field col">
-      <label for="nombre"><h5><b>&nbsp;Observaciones</b></h5></label><br><br><br>
-        <input type="text" class="materialize-textarea biginput" [(ngModel)]="currentEntity.observacioness" name="observacioness" required pattern="[ñáéíóú,.\w ]+">
-    </section>
-  </div>
-
-
-  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit" (click)="save()">Confirmar
-      <i class="mdi-content-send right"></i>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
+    <i class="mdi-content-send right"></i>
   </button>
 
-</form>
-</div>
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
+    <i class="mdi-content-send right"></i>
+  </button>
 
+  <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
+    <i class="mdi-content-send right"></i>
+  </button><br><br>
+  <div class="pestanas">
+    <a [routerLink]="['/pages/datos-generales']" class="Datos Generales">Datos Generales</a>
+    <a [routerLink]="['/pages/empresa']" class="Empresa">Empresa</a>
+    <a [routerLink]="['/pages/integrantes']" class="Integrantes">Integrantes</a>
+    <a [routerLink]="['/pages/actividades']" class="Actividades">Actividades</a>
+    <a [routerLink]="['/pages/plan-de-trabajo']" class="Plan de Trabajo">Plan de Trabajo</a>
+    <a [routerLink]="['/pages/firmas']" class="Firma">Firmas</a>
+    <a [routerLink]="['/pages/bibliografia']" class="Bibliografía">Bibliografía</a>
+    <a [routerLink]="['/pages/anexos']" class="Anexos">Anexos</a>
+    <a [routerLink]="['/pages/observaciones']" class="Observaciones">Observaciones</a>
+    <a [routerLink]="['/pages/documentos']" class="Adjuntar Documentos">Adjuntar Documentos</a>
+    <a [routerLink]="['/pages/certificados']" class="Solicitud de Certificados">Solicitud de Certificados</a>
+  </div>
+
+  <form name="registro" [formGroup]="observacionesForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <section class="input-field col">
+        <label for="nombre">
+          <h5><b>&nbsp;Estado</b></h5>
+        </label><br><br><br>
+        <form formGroupName="estado">
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="aprobado" value="aprobado">
+          <label for="aprobado" class="bgcolor">Aprobado</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="enrevision" value="enrevision">
+          <label for="enrevision">En Revisión</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="corregido" value="corregido">
+          <label for="corregido" class="bgcolor">Corregido</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="rechazado" value="rechazado">
+          <label for="rechazado">Rechazado</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="enviado" value="enviado">
+          <label for="enviado" class="bgcolor">Enviado a Senecyt</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="porenviar" value="porenviar">
+          <label for="porenviar">Por enviar a Senecyt</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="desarrollo" value="desarrollo">
+          <label for="desarrollo">En Desarrollo</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="terminado" value="terminado">
+          <label for="terminado" class="bgcolor">Terminado</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" ng-model="" formControlName="estadoRadio" id="suspendido" value="suspendido">
+          <label for="suspendido">Suspendido</label>&nbsp;&nbsp;&nbsp;
+        </form>
+      </section>
+    </div>
+    <div class="row">
+      <section class="input-field col">
+        <label for="nombre">
+          <h5><b>&nbsp;Observaciones</b></h5>
+        </label><br><br><br>
+        <input type="text" class="materialize-textarea biginput" formControlName="observaciones" name="observacioness">
+        <div *ngIf="observaciones?.invalid && (observaciones?.dirty || observaciones?.touched)"
+          class="alert alert-danger ">
+          <div *ngIf="observaciones?.errors?.['required']">
+            Observaciones es un campo requerido.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <button class="btn waves-effect waves-light right" type="submit" [disabled]="!observacionesForm.valid">
+      Confirmar
+      <i class="mdi-content-send right"></i>
+    </button>
+  </form>
+</div>

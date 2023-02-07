@@ -2,6 +2,6 @@ export interface Observaciones {
 
   observacionesId: number,
   estado: string,
-  observacioness: string
+  observaciones: string
 
 }
