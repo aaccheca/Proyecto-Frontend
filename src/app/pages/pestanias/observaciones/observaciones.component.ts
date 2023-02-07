@@ -24,10 +24,10 @@ export class ObservacionesComponent implements OnInit {
 
   observacionesForm = this.fb.group({
     estado: this.fb.group({
-      estadoRadio: [this.currentEntity.estado,[Validators.required]]
+      estadoRadio: [this.currentEntity.estado, [Validators.required]],
     }),
-    observaciones: [this.currentEntity.observaciones, [Validators.required]]
-  })
+    observaciones: [this.currentEntity.observaciones, [Validators.required]],
+  });
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -54,6 +54,10 @@ export class ObservacionesComponent implements OnInit {
 
   get observaciones() {
     return this.observacionesForm.get('observaciones');
+  }
+
+  get estadoRadio() {
+    return this.observacionesForm.get('estado')?.value.estadoRadio;
   }
 
   findById(id: number): void {

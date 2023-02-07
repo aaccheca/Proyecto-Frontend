@@ -59,6 +59,10 @@
           <label for="terminado" class="bgcolor">Terminado</label>&nbsp;&nbsp;&nbsp;
           <input type="radio" ng-model="" formControlName="estadoRadio" id="suspendido" value="suspendido">
           <label for="suspendido">Suspendido</label>&nbsp;&nbsp;&nbsp;
+          <br><br><br>
+          <div *ngIf="!estadoRadio" class="alert alert-danger ">
+              Estado es un campo requerido.
+          </div>
         </form>
       </section>
     </div>
